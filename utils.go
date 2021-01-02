@@ -2,10 +2,21 @@ package utils
 
 
 //СharIsNum - функция проверки: Символ есть число
-func СharIsNum(munChar string) bool {
+func СharIsNum(s byte) bool {
 	
-	if (munChar == "0") || (munChar == "1") || (munChar == "2") || (munChar == "3") || (munChar == "4") || (munChar == "5") || (munChar == "6") || (munChar == "7") || (munChar == "8") || (munChar == "9") {
+	if s> 47 && s < 58 {
 		return true
 	}
 	return false
+}
+
+//StrIsNum - функция проверки: Срока состоит только из чисел
+func StrIsNum(s string) bool {
+    for i:=0; i<len(s); i++ {
+		c:= s[i]
+        if !СharIsNum(c) {
+            return false
+        }
+    }
+    return true
 }
